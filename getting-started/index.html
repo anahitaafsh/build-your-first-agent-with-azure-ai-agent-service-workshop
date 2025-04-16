@@ -356,25 +356,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#selecting-the-language-workspace" class="md-nav__link">
-    <span class="md-ellipsis">
-      Selecting the Language Workspace
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#project-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      Project Structure
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#project-structure_1" class="md-nav__link">
     <span class="md-ellipsis">
       Project Structure
     </span>
@@ -402,7 +384,7 @@
   
   
   <span class="md-ellipsis">
-    Lab 1 Function Calling Power
+    Part 1 Function Calling Power
     
   </span>
   
@@ -424,7 +406,7 @@
   
   
   <span class="md-ellipsis">
-    Lab 2 Grounding with Documents
+    Part 2 Grounding with Documents
     
   </span>
   
@@ -446,29 +428,7 @@
   
   
   <span class="md-ellipsis">
-    Lab 3 Intro to the Code Interpreter
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lab-4-bing_search.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Lab 4 Grounding with Bing Search
+    Part 3 Intro to the Code Interpreter
     
   </span>
   
@@ -490,7 +450,7 @@
   
   
   <span class="md-ellipsis">
-    Lab 5 Multilingual Visualizations
+    Part 4 Multilingual Visualizations
     
   </span>
   
@@ -512,7 +472,7 @@
   
   
   <span class="md-ellipsis">
-    Lab 6 Finishing Up
+    Part 5 Finishing Up
     
   </span>
   
@@ -636,25 +596,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#selecting-the-language-workspace" class="md-nav__link">
-    <span class="md-ellipsis">
-      Selecting the Language Workspace
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#project-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      Project Structure
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#project-structure_1" class="md-nav__link">
     <span class="md-ellipsis">
       Project Structure
     </span>
@@ -688,10 +630,12 @@
 <li>You need a GitHub account. If you don’t have one, create it at <a href="https://github.com/join">GitHub</a>.</li>
 </ol>
 <h2 id="open-the-workshop">Open the Workshop<a class="headerlink" href="#open-the-workshop" title="Permanent link">&para;</a></h2>
-<p>We will run this workshop using GitHub Codespaces. This option provides a pre-configured environment with all the tools and resources needed to complete the workshop.</p>
+<p>The preferred way to run this workshop is using GitHub Codespaces. This option provides a pre-configured environment with all the tools and resources needed to complete the workshop. </p>
 <p>Select <strong>Open in GitHub Codespaces</strong> to open the project in GitHub Codespaces.</p>
-<p><a href="https://codespaces.new/microsoft/build-your-first-agent-with-azure-ai-agent-service-workshop"><img alt="Open in GitHub Codespaces" src="https://github.com/codespaces/badge.svg" /></a></p>
-<p>== Warning "Building the Codespace will take several minutes. You can continue reading the instructions while it builds." ==</p>
+<p><a href="https://codespaces.new/anahitaafsh/build-your-first-agent-with-azure-ai-agent-service-workshop"><img alt="Open in GitHub Codespaces" src="https://github.com/codespaces/badge.svg" /></a></p>
+<div class="admonition warning">
+<p class="admonition-title">Building the Codespace will take several minutes. You can continue reading the instructions while it builds.</p>
+</div>
 <h2 id="authenticate-with-azure">Authenticate with Azure<a class="headerlink" href="#authenticate-with-azure" title="Permanent link">&para;</a></h2>
 <p>You need to authenticate with Azure so the agent app can access the Azure AI Agents Service and models. Follow these steps:</p>
 <ol>
@@ -701,13 +645,16 @@
 <p>Run the following command to authenticate with Azure:</p>
 <div class="highlight"><pre><span></span><code>az<span class="w"> </span>login<span class="w"> </span>--use-device-code
 </code></pre></div>
-<p>== note
-    You'll be prompted to open a browser link and log in to your Azure account. Be sure to copy the authentication code first.</p>
-<pre><code>1. A browser window will open automatically, select your account type and click **Next**.
-2. Sign in with your Azure subscription **Username** and **Password**.
-3. **Paste** the authentication code.
-4. Select **OK**, then **Done**.
-</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You'll be prompted to open a browser link and log in to your Azure account. Be sure to copy the authentication code first.</p>
+<ol>
+<li>A browser window will open automatically, select your account type and click <strong>Next</strong>.</li>
+<li>Sign in with your Azure subscription <strong>Username</strong> and <strong>Password</strong>.</li>
+<li><strong>Paste</strong> the authentication code.</li>
+<li>Select <strong>OK</strong>, then <strong>Done</strong>.</li>
+</ol>
+</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>If you have multiple Azure tenants, then you will need to select the appropriate tenant when authenticating.</p>
@@ -728,8 +675,10 @@
 <li>A <strong>Serverless (pay-as-you-go) GPT-4o model deployment</strong> named <strong>gpt-4o (Global 2024-08-06)</strong>. See pricing details <a href="https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/">here</a>.</li>
 <li>A <strong>Grounding with Bing Search</strong> resource. See the <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding">documentation</a> and <a href="https://www.microsoft.com/en-us/bing/apis/grounding-pricing">pricing</a> for details.</li>
 </ul>
-<p>== warning "You will need 140K TPM quota availability for the gpt-4o Global Standard SKU, not because the agent uses lots of tokens, but due to the frequency of calls made by the agent to the model. Review your quota availability in the <a href="https://ai.azure.com/managementCenter/quota">AI Foundry Management Center</a>."</p>
-<p>We have provided a bash script to automate the deployment of the resources required for the workshop. Alternatively, you may deploy resources manually using Azure AI Foundry studio. </p>
+<div class="admonition warning">
+<p class="admonition-title">If you get quota issues, review your quota availability in the <a href="https://ai.azure.com/managementCenter/quota">AI Foundry Management Center</a>.</p>
+</div>
+<p>We have provided a bash script to automate the deployment of the resources required for the workshop. Alternatively, you may deploy resources manually using Azure AI Foundry studio.</p>
 <p>The script <code>deploy.sh</code> deploys to the <code>eastus2</code> region by default; edit the file to change the region or resource names. To run the script, open the VS Code terminal and run the following command:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>infra<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>./deploy.sh
 </code></pre></div>
@@ -740,11 +689,6 @@
 <span class="n">BING_CONNECTION_NAME</span><span class="o">=</span><span class="s2">&quot;groundingwithbingsearch&quot;</span>
 <span class="n">PROJECT_CONNECTION_STRING</span><span class="o">=</span><span class="s2">&quot;&lt;your_project_connection_string&gt;&quot;</span>
 </code></pre></div>
-<h2 id="selecting-the-language-workspace">Selecting the Language Workspace<a class="headerlink" href="#selecting-the-language-workspace" title="Permanent link">&para;</a></h2>
-<p>There are two workspaces in the workshop, one for Python and one for C#. The workspace contains the source code and all the files needed to complete the labs for each language. Choose the workspace that matches the language you want to work with.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C#</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
 <ol>
 <li>From the <strong>VS Code menu</strong>, select <strong>File</strong> &gt; <strong>Open Workspace from File</strong>.</li>
 <li>Select the <strong>.vscode/python-workspace.code-workspace</strong> file.</li>
@@ -764,30 +708,6 @@
 <li>The <strong>instructions</strong> folder: Contains the instructions passed to the LLM.</li>
 </ul>
 <p><a class="glightbox" href="../media/project-structure-self-guided-python.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Lab folder structure" src="../media/project-structure-self-guided-python.png" /></a></p>
-</div>
-<div class="tabbed-block">
-<ol>
-<li>From the <strong>VS Code menu</strong>, select <strong>File</strong> &gt; <strong>Open Workspace from File</strong>.</li>
-<li>Select the <strong>.vscode/csharp-workspace.code-workspace</strong> file.</li>
-</ol>
-<h2 id="project-structure_1">Project Structure<a class="headerlink" href="#project-structure_1" title="Permanent link">&para;</a></h2>
-<p>Be sure to familiarize yourself with the key <strong>subfolders</strong> and <strong>files</strong> you’ll be working with throughout the workshop.</p>
-<h3 id="the-workshop-folder_1">The workshop folder<a class="headerlink" href="#the-workshop-folder_1" title="Permanent link">&para;</a></h3>
-<ul>
-<li>The <strong>Lab1.cs, Lab2.cs, Lab3.cs</strong> files: The entry point for each lab, containing its agent logic.</li>
-<li>The <strong>Program.cs</strong> file: The entry point for the app, containing its main logic.</li>
-<li>The <strong>SalesData.cs</strong> file: The function logic to execute dynamic SQL queries against the SQLite database.</li>
-</ul>
-<h3 id="the-shared-folder_1">The shared folder<a class="headerlink" href="#the-shared-folder_1" title="Permanent link">&para;</a></h3>
-<ul>
-<li>The <strong>files</strong> folder: Contains the files created by the agent app.</li>
-<li>The <strong>fonts</strong> folder: Contains the multilingual fonts used by Code Interpreter.</li>
-<li>The <strong>instructions</strong> folder: Contains the instructions passed to the LLM.</li>
-</ul>
-<p><a class="glightbox" href="../media/project-structure-self-guided-csharp.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Lab folder structure" src="../media/project-structure-self-guided-csharp.png" /></a></p>
-</div>
-</div>
-</div>
 
 
 
@@ -836,13 +756,13 @@
         
         
           
-          <a href="../lab-1-function_calling/" class="md-footer__link md-footer__link--next" aria-label="Next: Lab 1 Function Calling Power">
+          <a href="../lab-1-function_calling/" class="md-footer__link md-footer__link--next" aria-label="Next: Part 1 Function Calling Power">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Lab 1 Function Calling Power
+                Part 1 Function Calling Power
               </div>
             </div>
             <div class="md-footer__button md-icon">

@@ -20,7 +20,7 @@
     
     
       
-        <title>Lab 2 Grounding with Documents - Build your code-first agent with Azure AI Foundry</title>
+        <title>Part 2 Grounding with Documents - Build your code-first agent with Azure AI Foundry</title>
       
     
     
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Lab 2 Grounding with Documents
+              Part 2 Grounding with Documents
             
           </span>
         </div>
@@ -292,7 +292,7 @@
   
   
   <span class="md-ellipsis">
-    Lab 1 Function Calling Power
+    Part 1 Function Calling Power
     
   </span>
   
@@ -321,7 +321,7 @@
   
   
   <span class="md-ellipsis">
-    Lab 2 Grounding with Documents
+    Part 2 Grounding with Documents
     
   </span>
   
@@ -334,7 +334,7 @@
   
   
   <span class="md-ellipsis">
-    Lab 2 Grounding with Documents
+    Part 2 Grounding with Documents
     
   </span>
   
@@ -419,29 +419,7 @@
   
   
   <span class="md-ellipsis">
-    Lab 3 Intro to the Code Interpreter
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lab-4-bing_search.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Lab 4 Grounding with Bing Search
+    Part 3 Intro to the Code Interpreter
     
   </span>
   
@@ -463,7 +441,7 @@
   
   
   <span class="md-ellipsis">
-    Lab 5 Multilingual Visualizations
+    Part 4 Multilingual Visualizations
     
   </span>
   
@@ -485,7 +463,7 @@
   
   
   <span class="md-ellipsis">
-    Lab 6 Finishing Up
+    Part 5 Finishing Up
     
   </span>
   
@@ -624,7 +602,7 @@
 
 
 
-  <h1>Lab 2 Grounding with Documents</h1>
+  <h1>Part 2 Grounding with Documents</h1>
 
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <p>Grounding a conversation with documents is highly effective, especially for retrieving product details that may not be available in an operational database. The Azure AI Agent Service includes a <a href="https://learn.microsoft.com/en-us/azure/ai-services/agents/how-to/tools/file-search">File Search tool</a>, which enables agents to retrieve information directly from uploaded files, such as user-supplied documents or product data, enabling a <a href="https://learn.microsoft.com/azure/ai-studio/concepts/retrieval-augmented-generation">RAG-style</a> search experience.</p>
@@ -633,97 +611,73 @@
 <p>Normally, you wouldn’t create a new vector store and upload documents each time the app starts. Instead, you’d create the vector store once, upload potentially thousands of documents, and connect the store to the agent.</p>
 <p>A <a href="https://en.wikipedia.org/wiki/Vector_database">vector store</a> is a database optimized for storing and searching vectors (numeric representations of text data). The File Search tool uses the vector store for <a href="https://en.wikipedia.org/wiki/Semantic_search">semantic search</a> to search for relevant information in the uploaded document.</p>
 <h2 id="lab-exercise">Lab Exercise<a class="headerlink" href="#lab-exercise" title="Permanent link">&para;</a></h2>
-<ol>
-<li>
-<p>Open the <strong>shared/datasheet/contoso-tents-datasheet.pdf</strong> file from VS Code. The PDF file includes detailed product descriptions for the tents sold by Contoso.</p>
-</li>
-<li>
-<p><strong>Review</strong> the file’s contents to understand the information it contains, as this will be used to ground the agent’s responses.</p>
-</li>
-</ol>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C#</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<ol>
-<li>
-<p>Open the file <code>main.py</code>.</p>
-</li>
-<li>
-<p><strong>Uncomment</strong> the following lines by removing the <strong>"# "</strong> characters</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># INSTRUCTIONS_FILE = &quot;instructions/file_search.txt&quot;</span>
+<pre><code>1. Open the **shared/datasheet/contoso-tents-datasheet.pdf** file from VS Code. The PDF file includes detailed product descriptions for the tents sold by Contoso.
 
-<span class="c1"># vector_store = await utilities.create_vector_store(</span>
-<span class="c1">#     project_client,</span>
-<span class="c1">#     files=[TENTS_DATA_SHEET_FILE],</span>
-<span class="c1">#     vector_name_name=&quot;Contoso Product Information Vector Store&quot;,</span>
-<span class="c1"># )</span>
-<span class="c1"># file_search_tool = FileSearchTool(vector_store_ids=[vector_store.id])</span>
-<span class="c1"># toolset.add(file_search_tool)</span>
-</code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The lines to be uncommented are not adjacent. When removing the # character, ensure you also delete the space that follows it.</p>
-</div>
-</li>
-<li>
-<p>Review the code in the <code>main.py</code> file.</p>
-<p>After uncommenting, your code should look like this:</p>
-<div class="highlight"><pre><span></span><code><span class="n">INSTRUCTIONS_FILE</span> <span class="o">=</span> <span class="s2">&quot;instructions/function_calling.txt&quot;</span>
-<span class="n">INSTRUCTIONS_FILE</span> <span class="o">=</span> <span class="s2">&quot;instructions/file_search.txt&quot;</span>
-<span class="c1"># INSTRUCTIONS_FILE = &quot;instructions/code_interpreter.txt&quot;</span>
-<span class="c1"># INSTRUCTIONS_FILE = &quot;instructions/code_interpreter_multilingual.txt&quot;</span>
-<span class="c1"># INSTRUCTIONS_FILE = &quot;instructions/bing_grounding.txt&quot;</span>
+2. **Review** the file’s contents to understand the information it contains, as this will be used to ground the agent’s responses.
+
+1. Open the file `main.py`.
+
+2. **Uncomment** the following lines by removing the **"# "** characters
+
+```python
+# INSTRUCTIONS_FILE = "instructions/file_search.txt"
+
+# vector_store = await utilities.create_vector_store(
+#     project_client,
+#     files=[TENTS_DATA_SHEET_FILE],
+#     vector_name_name="Contoso Product Information Vector Store",
+# )
+# file_search_tool = FileSearchTool(vector_store_ids=[vector_store.id])
+# toolset.add(file_search_tool)
+```
+
+!!! warning
+    The lines to be uncommented are not adjacent. When removing the # character, ensure you also delete the space that follows it.
+
+3. Review the code in the `main.py` file.
+
+After uncommenting, your code should look like this:
+
+```python
+INSTRUCTIONS_FILE = "instructions/function_calling.txt"
+INSTRUCTIONS_FILE = "instructions/file_search.txt"
+# INSTRUCTIONS_FILE = "instructions/code_interpreter.txt"
+# INSTRUCTIONS_FILE = "instructions/code_interpreter_multilingual.txt"
+# INSTRUCTIONS_FILE = "instructions/bing_grounding.txt"
 
 
-<span class="k">async</span> <span class="k">def</span> <span class="nf">add_agent_tools</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Add tools for the agent.&quot;&quot;&quot;</span>
-    <span class="n">font_file_info</span> <span class="o">=</span> <span class="kc">None</span>
+async def add_agent_tools() -&gt; None:
+    """Add tools for the agent."""
+    font_file_info = None
 
-    <span class="c1"># Add the functions tool</span>
-    <span class="n">toolset</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">functions</span><span class="p">)</span>
+    # Add the functions tool
+    toolset.add(functions)
 
-    <span class="c1"># Add the tents data sheet to a new vector data store</span>
-    <span class="n">vector_store</span> <span class="o">=</span> <span class="k">await</span> <span class="n">utilities</span><span class="o">.</span><span class="n">create_vector_store</span><span class="p">(</span>
-        <span class="n">project_client</span><span class="p">,</span>
-        <span class="n">files</span><span class="o">=</span><span class="p">[</span><span class="n">TENTS_DATA_SHEET_FILE</span><span class="p">],</span>
-        <span class="n">vector_store_name</span><span class="o">=</span><span class="s2">&quot;Contoso Product Information Vector Store&quot;</span><span class="p">,</span>
-    <span class="p">)</span>
-    <span class="n">file_search_tool</span> <span class="o">=</span> <span class="n">FileSearchTool</span><span class="p">(</span><span class="n">vector_store_ids</span><span class="o">=</span><span class="p">[</span><span class="n">vector_store</span><span class="o">.</span><span class="n">id</span><span class="p">])</span>
-    <span class="n">toolset</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">file_search_tool</span><span class="p">)</span>
+    # Add the tents data sheet to a new vector data store
+    vector_store = await utilities.create_vector_store(
+        project_client,
+        files=[TENTS_DATA_SHEET_FILE],
+        vector_store_name="Contoso Product Information Vector Store",
+    )
+    file_search_tool = FileSearchTool(vector_store_ids=[vector_store.id])
+    toolset.add(file_search_tool)
 
-    <span class="c1"># Add the code interpreter tool</span>
-    <span class="c1"># code_interpreter = CodeInterpreterTool()</span>
-    <span class="c1"># toolset.add(code_interpreter)</span>
+    # Add the code interpreter tool
+    # code_interpreter = CodeInterpreterTool()
+    # toolset.add(code_interpreter)
 
-    <span class="c1"># Add multilingual support to the code interpreter</span>
-    <span class="c1"># font_file_info = await utilities.upload_file(project_client, utilities.shared_files_path / FONTS_ZIP)</span>
-    <span class="c1"># code_interpreter.add_file(file_id=font_file_info.id)</span>
+    # Add multilingual support to the code interpreter
+    # font_file_info = await utilities.upload_file(project_client, utilities.shared_files_path / FONTS_ZIP)
+    # code_interpreter.add_file(file_id=font_file_info.id)
 
-    <span class="c1"># Add the Bing grounding tool</span>
-    <span class="c1"># bing_connection = await project_client.connections.get(connection_name=BING_CONNECTION_NAME)</span>
-    <span class="c1"># bing_grounding = BingGroundingTool(connection_id=bing_connection.id)</span>
-    <span class="c1"># toolset.add(bing_grounding)</span>
+    # Add the Bing grounding tool
+    # bing_connection = await project_client.connections.get(connection_name=BING_CONNECTION_NAME)
+    # bing_grounding = BingGroundingTool(connection_id=bing_connection.id)
+    # toolset.add(bing_grounding)
 
-    <span class="k">return</span> <span class="n">font_file_info</span>
-</code></pre></div>
-</li>
-</ol>
-</div>
-<div class="tabbed-block">
-<ol>
-<li>Open the <code>Program.cs</code> file.</li>
-<li>
-<p><strong>Update</strong> the creation of the lab to use the <code>Lab3</code> class.</p>
-<div class="highlight"><pre><span></span><code><span class="k">await</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="nn">Lab</span><span class="w"> </span><span class="n">lab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Lab2</span><span class="p">(</span><span class="n">projectClient</span><span class="p">,</span><span class="w"> </span><span class="n">apiDeploymentName</span><span class="p">);</span>
-</code></pre></div>
-</li>
-<li>
-<p>Review the <code>Lab3.cs</code> class to see how <code>InitialiseLabAsync</code> is used to add the PDF to a vector store and add the File Search tool to the agent, and <code>InitialiseToolResources</code> is used to add the File Search tool to the agent. These methods would be good places to add breakpoints to observe the process.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
+    return font_file_info
+```
+</code></pre>
 <h2 id="review-the-instructions">Review the Instructions<a class="headerlink" href="#review-the-instructions" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
@@ -813,7 +767,7 @@ now has access to information that Alpine Gear is a brand of backpacking tent.</
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../lab-1-function_calling/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Lab 1 Function Calling Power">
+          <a href="../lab-1-function_calling/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Part 1 Function Calling Power">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -823,20 +777,20 @@ now has access to information that Alpine Gear is a brand of backpacking tent.</
                 Previous
               </span>
               <div class="md-ellipsis">
-                Lab 1 Function Calling Power
+                Part 1 Function Calling Power
               </div>
             </div>
           </a>
         
         
           
-          <a href="../lab-3-code_interpreter/" class="md-footer__link md-footer__link--next" aria-label="Next: Lab 3 Intro to the Code Interpreter">
+          <a href="../lab-3-code_interpreter/" class="md-footer__link md-footer__link--next" aria-label="Next: Part 3 Intro to the Code Interpreter">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Lab 3 Intro to the Code Interpreter
+                Part 3 Intro to the Code Interpreter
               </div>
             </div>
             <div class="md-footer__button md-icon">

@@ -361,7 +361,7 @@
   
   
   <span class="md-ellipsis">
-    Lab 1 Function Calling Power
+    Part 1 Function Calling Power
     
   </span>
   
@@ -383,7 +383,7 @@
   
   
   <span class="md-ellipsis">
-    Lab 2 Grounding with Documents
+    Part 2 Grounding with Documents
     
   </span>
   
@@ -405,29 +405,7 @@
   
   
   <span class="md-ellipsis">
-    Lab 3 Intro to the Code Interpreter
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lab-4-bing_search.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Lab 4 Grounding with Bing Search
+    Part 3 Intro to the Code Interpreter
     
   </span>
   
@@ -449,7 +427,7 @@
   
   
   <span class="md-ellipsis">
-    Lab 5 Multilingual Visualizations
+    Part 4 Multilingual Visualizations
     
   </span>
   
@@ -471,7 +449,7 @@
   
   
   <span class="md-ellipsis">
-    Lab 6 Finishing Up
+    Part 5 Finishing Up
     
   </span>
   
@@ -603,23 +581,23 @@
 <p>This agent is built on Microsoft Azure services.</p>
 <ul>
 <li>
-<p><strong>Generative AI model</strong>: The underlying LLM powering this app is the <a href="https://learn.microsoft.com/azure/ai-services/openai/concepts/models?tabs=global-standard%2Cstandard-chat-completions#gpt-4o-and-gpt-4-turbo" target="_blank">Azure OpenAI gpt-4o</a> LLM.</p>
+<p><strong>Generative AI model</strong>: The underlying LLM powering this app is the <a href="https://learn.microsoft.com/azure/ai-services/openai/concepts/models?tabs=global-standard%2Cstandard-chat-completions#gpt-4o-and-gpt-4-turbo">Azure OpenAI gpt-4o-mini</a> LLM.</p>
 </li>
 <li>
-<p><strong>Vector Store</strong>: We will provide the agent with product information as a PDF file to support its queries. The agent will use the "basic agent setup" of the <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/file-search?tabs=python&amp;pivots=overview" target="_blank">Azure AI Agent Service file search tool</a> to find relevant portions of the document with vector search and provide them to the agent as context.</p>
+<p><strong>Vector Store</strong>: We will provide the agent with product information as a PDF file to support its queries. The agent will use the "basic agent setup" of the <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/file-search?tabs=python&amp;pivots=overview">Azure AI Agent Service file search tool</a> to find relevant portions of the document with vector search and provide them to the agent as context.</p>
 </li>
 <li>
-<p><strong>Control Plane</strong>: The app and its architectural components are managed and monitored using the <a href="https://ai.azure.com" target="_blank">Azure AI Foundry</a> portal, accessible via the browser.</p>
+<p><strong>Control Plane</strong>: The app and its architectural components are managed and monitored using the <a href="https://ai.azure.com">Azure AI Foundry</a> portal, accessible via the browser.</p>
 </li>
 </ul>
 </li>
 <li>
 <p><strong>Azure AI Foundry (SDK)</strong></p>
-<p>The workshop is offered in both <a href="https://learn.microsoft.com/python/api/overview/azure/ai-projects-readme?view=azure-python-preview&amp;context=%2Fazure%2Fai-services%2Fagents%2Fcontext%2Fcontext" target="_blank">Python</a> and <a href="https://learn.microsoft.com/en-us/dotnet/api/overview/azure/ai.projects-readme?view=azure-dotnet-preview&amp;viewFallbackFrom=azure-python-preview" target="_blank">C#</a> using the Azure AI Foundry SDK. The SDK supports key features of the Azure AI Agents service, including <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter?view=azure-python-preview&amp;tabs=python&amp;pivots=overview" target="_blank">Code Interpreter</a> and <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/function-calling?view=azure-python-preview&amp;tabs=python&amp;pivots=overview" target="_blank">Function Calling</a>.</p>
+<p>The workshop is offered in both <a href="https://learn.microsoft.com/python/api/overview/azure/ai-projects-readme?view=azure-python-preview&amp;context=%2Fazure%2Fai-services%2Fagents%2Fcontext%2Fcontext">Python</a> and <a href="https://learn.microsoft.com/en-us/dotnet/api/overview/azure/ai.projects-readme?view=azure-dotnet-preview&amp;viewFallbackFrom=azure-python-preview">C#</a> using the Azure AI Foundry SDK. The SDK supports key features of the Azure AI Agents service, including <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter?view=azure-python-preview&amp;tabs=python&amp;pivots=overview">Code Interpreter</a> and <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/function-calling?view=azure-python-preview&amp;tabs=python&amp;pivots=overview">Function Calling</a>.</p>
 </li>
 <li>
 <p><strong>Database</strong></p>
-<p>The app is informed by the Contoso Sales Database, a <a href="https://www.sqlite.org/" target="_blank">SQLite database</a> containing 40,000 rows of synthetic data. At startup, the agent app reads the sales database schema, product categories, product types, and reporting years, then incorporates this metadata into the Azure AI Agent Service’s instruction context.</p>
+<p>The app is informed by the Contoso Sales Database, a <a href="https://www.sqlite.org/">SQLite database</a> containing 40,000 rows of synthetic data. At startup, the agent app reads the sales database schema, product categories, product types, and reporting years, then incorporates this metadata into the Azure AI Agent Service’s instruction context.</p>
 </li>
 </ol>
 <h2 id="extending-the-workshop-solution">Extending the Workshop Solution<a class="headerlink" href="#extending-the-workshop-solution" title="Permanent link">&para;</a></h2>
