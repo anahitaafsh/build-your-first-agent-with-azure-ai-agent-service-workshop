@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="../lab-4-bing_search/">
+        <link rel="prev" href="../lab-3-code_interpreter/">
       
       
         <link rel="next" href="../finishing-up/">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Lab 5 Multilingual Visualizations - Build your code-first agent with Azure AI Foundry</title>
+        <title>Part 4 Multilingual Visualizations - Build your code-first agent with Azure AI Foundry</title>
       
     
     
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Lab 5 Multilingual Visualizations
+              Part 4 Multilingual Visualizations
             
           </span>
         </div>
@@ -292,7 +292,7 @@
   
   
   <span class="md-ellipsis">
-    Lab 1 Function Calling Power
+    Part 1 Function Calling Power
     
   </span>
   
@@ -314,7 +314,7 @@
   
   
   <span class="md-ellipsis">
-    Lab 2 Grounding with Documents
+    Part 2 Grounding with Documents
     
   </span>
   
@@ -336,29 +336,7 @@
   
   
   <span class="md-ellipsis">
-    Lab 3 Intro to the Code Interpreter
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lab-4-bing_search/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Lab 4 Grounding with Bing Search
+    Part 3 Intro to the Code Interpreter
     
   </span>
   
@@ -387,7 +365,7 @@
   
   
   <span class="md-ellipsis">
-    Lab 5 Multilingual Visualizations
+    Part 4 Multilingual Visualizations
     
   </span>
   
@@ -400,7 +378,7 @@
   
   
   <span class="md-ellipsis">
-    Lab 5 Multilingual Visualizations
+    Part 4 Multilingual Visualizations
     
   </span>
   
@@ -521,7 +499,7 @@
   
   
   <span class="md-ellipsis">
-    Lab 6 Finishing Up
+    Part 5 Finishing Up
     
   </span>
   
@@ -696,10 +674,10 @@
 
 
 
-  <h1>Lab 5 Multilingual Visualizations</h1>
+  <h1>Part 4 Multilingual Visualizations</h1>
 
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
-<p>In the Grounding with Documents lab, we uploaded a PDF file to provide context for conversations. Now, we’ll enhance the Code Interpreter by uploading a ZIP file with fonts for multilingual visualizations—just one example of how <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter" target="_blank">file uploads</a> can extend its functionality.</p>
+<p>We’ll enhance the Code Interpreter by uploading a ZIP file with fonts for multilingual visualizations—just one example of how <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter">file uploads</a> can extend its functionality.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The Code Interpreter includes a default set of Latin-based fonts. Since the Code Interpreter runs in a sandboxed Python environment, it can’t download fonts directly from the internet.</p>
@@ -728,9 +706,6 @@
 </li>
 </ol>
 <h2 id="add-multilingual-font-support">Add Multilingual Font Support<a class="headerlink" href="#add-multilingual-font-support" title="Permanent link">&para;</a></h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C#</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
 <ol>
 <li>
 <p>Open the <code>main.py</code>.</p>
@@ -790,24 +765,6 @@
 </code></pre></div>
 </li>
 </ol>
-</div>
-<div class="tabbed-block">
-<ol>
-<li>
-<p>Open the <code>Program.cs</code> file.</p>
-</li>
-<li>
-<p><strong>Update</strong> the creation of the lab to use the <code>Lab2</code> class.</p>
-<div class="highlight"><pre><span></span><code><span class="k">await</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="nn">Lab</span><span class="w"> </span><span class="n">lab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Lab5</span><span class="p">(</span><span class="n">projectClient</span><span class="p">,</span><span class="w"> </span><span class="n">apiDeploymentName</span><span class="p">);</span>
-</code></pre></div>
-</li>
-<li>
-<p>Review the <code>Lab4.cs</code> class to see how the Code Interpreter is added to the Tools list.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
 <h2 id="review-the-instructions">Review the Instructions<a class="headerlink" href="#review-the-instructions" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Open the <strong>shared/instructions/code_interpreter_multilingual.txt</strong> file. This file replaces the instructions used in the previous lab.</li>
@@ -908,7 +865,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../lab-4-bing_search/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Lab 4 Grounding with Bing Search">
+          <a href="../lab-3-code_interpreter/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Part 3 Intro to the Code Interpreter">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -918,20 +875,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Lab 4 Grounding with Bing Search
+                Part 3 Intro to the Code Interpreter
               </div>
             </div>
           </a>
         
         
           
-          <a href="../finishing-up/" class="md-footer__link md-footer__link--next" aria-label="Next: Lab 6 Finishing Up">
+          <a href="../finishing-up/" class="md-footer__link md-footer__link--next" aria-label="Next: Part 5 Finishing Up">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Lab 6 Finishing Up
+                Part 5 Finishing Up
               </div>
             </div>
             <div class="md-footer__button md-icon">
