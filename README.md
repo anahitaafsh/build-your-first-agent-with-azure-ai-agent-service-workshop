@@ -2,7 +2,7 @@
 
 This repository contains the content and sample code for the 75-minute workshop, "Build your code-first agent with Azure AI Foundry". You can try out this workshop using this repository. For information on how to deliver this workshop in a laboratory setting like [Microsoft AI Tour](https://aitour.microsoft.com/), please visit [this repository](https://github.com/microsoft/aitour-build-your-first-agent-with-azure-ai-agent-service).
 
-## Workshop Oveview hhihihi
+## Workshop Oveview
 
 Imagine you are a sales manager at Contoso, a multinational retail company that sells outdoor equipment. You need to analyze sales data to find trends, understand customer preferences, and make informed business decisions. To help you, Contoso has developed a conversational agent that can answer questions about your sales data.
 
