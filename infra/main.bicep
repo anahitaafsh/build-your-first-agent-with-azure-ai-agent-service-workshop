@@ -34,7 +34,7 @@ param modelName string = 'gpt-4o-mini'
 param modelFormat string = 'OpenAI'
 
 @description('Model version for deployment')
-param modelVersion string = '2024-08-06'
+param modelVersion string = '2024-07-18'
 
 @description('Model deployment SKU name')
 param modelSkuName string = 'GlobalStandard'
