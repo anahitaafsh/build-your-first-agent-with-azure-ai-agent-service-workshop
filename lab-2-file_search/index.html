@@ -436,7 +436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../lab-4-bing_search/" class="md-nav__link">
+      <a href="../lab-4-bing_search.md" class="md-nav__link">
         
   
   
@@ -627,11 +627,11 @@
   <h1>Lab 2 Grounding with Documents</h1>
 
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
-<p>Grounding a conversation with documents is highly effective, especially for retrieving product details that may not be available in an operational database. The Azure AI Agent Service includes a <a href="https://learn.microsoft.com/en-us/azure/ai-services/agents/how-to/tools/file-search" target="_blank">File Search tool</a>, which enables agents to retrieve information directly from uploaded files, such as user-supplied documents or product data, enabling a <a href="https://learn.microsoft.com/azure/ai-studio/concepts/retrieval-augmented-generation" target="_blank">RAG-style</a> search experience.</p>
+<p>Grounding a conversation with documents is highly effective, especially for retrieving product details that may not be available in an operational database. The Azure AI Agent Service includes a <a href="https://learn.microsoft.com/en-us/azure/ai-services/agents/how-to/tools/file-search">File Search tool</a>, which enables agents to retrieve information directly from uploaded files, such as user-supplied documents or product data, enabling a <a href="https://learn.microsoft.com/azure/ai-studio/concepts/retrieval-augmented-generation">RAG-style</a> search experience.</p>
 <p>In this lab, you'll learn how to enable the document search and upload the Tents Data Sheet to a vector store for the agent. Once activated, the tool allows the agent to search the file and deliver relevant responses. Documents can be uploaded to the agent for all users or linked to a specific user thread, or linked to the Code Interpreter.</p>
 <p>When the app starts, a vector store is created, the Contoso tents datasheet PDF file is uploaded to the vector store, and it is made available to the agent.</p>
 <p>Normally, you wouldn’t create a new vector store and upload documents each time the app starts. Instead, you’d create the vector store once, upload potentially thousands of documents, and connect the store to the agent.</p>
-<p>A <a href="https://en.wikipedia.org/wiki/Vector_database" target="_blank">vector store</a> is a database optimized for storing and searching vectors (numeric representations of text data). The File Search tool uses the vector store for <a href="https://en.wikipedia.org/wiki/Semantic_search" target="_blank">semantic search</a> to search for relevant information in the uploaded document.</p>
+<p>A <a href="https://en.wikipedia.org/wiki/Vector_database">vector store</a> is a database optimized for storing and searching vectors (numeric representations of text data). The File Search tool uses the vector store for <a href="https://en.wikipedia.org/wiki/Semantic_search">semantic search</a> to search for relevant information in the uploaded document.</p>
 <h2 id="lab-exercise">Lab Exercise<a class="headerlink" href="#lab-exercise" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
@@ -728,7 +728,7 @@
 <ol>
 <li>
 <p>Review the <strong>create_vector_store</strong> function in the <strong>utilities.py</strong> file. The create_vector_store function uploads the Tents Data Sheet and saves it in a vector store.</p>
-<p>If you are comfortable using the VS Code debugger, then set a <a href="https://code.visualstudio.com/Docs/editor/debugging" target="_blank">breakpoint</a> in the <strong>create_vector_store</strong> function to observe how the vector store is created.</p>
+<p>If you are comfortable using the VS Code debugger, then set a <a href="https://code.visualstudio.com/Docs/editor/debugging">breakpoint</a> in the <strong>create_vector_store</strong> function to observe how the vector store is created.</p>
 </li>
 </ol>
 <h2 id="run-the-agent-app">Run the Agent App<a class="headerlink" href="#run-the-agent-app" title="Permanent link">&para;</a></h2>
