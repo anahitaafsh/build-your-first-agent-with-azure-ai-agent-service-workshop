@@ -1,6 +1,6 @@
 # Build your code-first agent with Azure AI Foundry
 
-## A 75-minute interactive workshop
+### Edited for the Copilot Studio and Azure AI Foundry Events 
 
 Imagine you are a sales manager at Contoso, a multinational retail company that sells outdoor equipment. You need to analyze sales data to find trends, understand customer preferences, and make informed business decisions. To help you, Contoso has developed a conversational agent that can answer questions about your sales data.
 
@@ -16,7 +16,7 @@ Unlike traditional applications, where developers define the logic and workflows
 
 ## What is the Azure AI Agent Service?
 
-The Azure AI Agent Service, now in public preview, offers a fully managed cloud service with SDKs for [Python](https://learn.microsoft.com/azure/ai-services/agents/quickstart?pivots=programming-language-python-azure){:target="_blank"} and [C#](https://learn.microsoft.com/azure/ai-services/agents/quickstart?pivots=programming-language-csharp){:target="_blank"}. It simplifies AI agent development, reducing complex tasks like function calling to just a few lines of code.
+The Azure AI Agent Service, now in public preview, offers a fully managed cloud service with SDKs for [Python](https://learn.microsoft.com/azure/ai-services/agents/quickstart?pivots=programming-language-python-azure) and [C#](https://learn.microsoft.com/azure/ai-services/agents/quickstart?pivots=programming-language-csharp). It simplifies AI agent development, reducing complex tasks like function calling to just a few lines of code. We will be using Python, but the C# code is included in the repo. 
 
 !!! info
     Function calling allows you to connect LLMs to external tools and systems. This is useful for many things such as empowering AI agents with capabilities, or building deep integrations between your applications and LLMs.
@@ -31,7 +31,7 @@ The Azure AI Agent Service offers several advantages over traditional agent plat
 - **Conversation State Management**: Maintains context across multiple interactions.
 - **AI Model Compatibility**: Works with various AI models.
 
-Learn more about the Azure AI Agent Service in the [Azure AI Agent Service documentation](https://learn.microsoft.com/azure/ai-services/agents/overview){:target="_blank"}.
+Learn more about the Azure AI Agent Service in the [Azure AI Agent Service documentation](https://learn.microsoft.com/azure/ai-services/agents/overview).
 
 ## AI Agent Frameworks
 

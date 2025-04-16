@@ -12,4 +12,4 @@ In enterprise scenarios, data is typically extracted and transformed from operat
 
 ## Sandboxing
 
-This uses the [Azure AI Agents Service Code Interpreter](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter?view=azure-python-preview&tabs=python&pivots=overview){:target="_blank"} to create and run code on demand. The code runs in a sandboxed execution environment to prevent the code taking actions that are beyond the scope of the agent.
+This uses the [Azure AI Agents Service Code Interpreter](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter?view=azure-python-preview&tabs=python&pivots=overview) to create and run code on demand. The code runs in a sandboxed execution environment to prevent the code taking actions that are beyond the scope of the agent.

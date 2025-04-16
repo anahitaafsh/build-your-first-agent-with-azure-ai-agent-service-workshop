@@ -8,49 +8,23 @@ It's up to the developer to implement the function logic within the agent app. I
 
 ### Enabling Function Calling
 
-If you’re familiar with [Azure OpenAI Function Calling](https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling){:target="_blank"}, you know it requires you to define a function schema for the LLM.
+If you’re familiar with [Azure OpenAI Function Calling](https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling), you know it requires you to define a function schema for the LLM.
 
-=== "Python"
+With the Azure AI Agent Service and its Python SDK, you can define the function schema directly within the Python function’s docstring. This approach keeps the definition and implementation together, simplifying maintenance and enhancing readability.
 
-    With the Azure AI Agent Service and its Python SDK, you can define the function schema directly within the Python function’s docstring. This approach keeps the definition and implementation together, simplifying maintenance and enhancing readability.
+For example, in the **sales_data.py** file, the **async_fetch_sales_data_using_sqlite_query** function uses a docstring to specify its signature, inputs, and outputs. The SDK parses this docstring to generate the callable function for the LLM:
 
-    For example, in the **sales_data.py** file, the **async_fetch_sales_data_using_sqlite_query** function uses a docstring to specify its signature, inputs, and outputs. The SDK parses this docstring to generate the callable function for the LLM:
+```python
 
-    ```python
+async def async_fetch_sales_data_using_sqlite_query(self: "SalesData", sqlite_query: str) -> str:
+    """
+    This function is used to answer user questions about Contoso sales data by executing SQLite queries against the database.
 
-    async def async_fetch_sales_data_using_sqlite_query(self: "SalesData", sqlite_query: str) -> str:
-        """
-        This function is used to answer user questions about Contoso sales data by executing SQLite queries against the database.
-
-        :param sqlite_query: The input should be a well-formed SQLite query to extract information based on the user's question. The query result will be returned as a JSON object.
-        :return: Return data in JSON serializable format.
-        :rtype: str
-        """
-    ```
-
-=== "C#"
-
-    With the Azure AI Agent Service and its .NET SDK, you define the function schema as part of the C# code when adding the function to the agent.
-
-    For example, in the **Lab.cs** file, the `InitialiseTools` method defines the function schema for the `FetchSalesDataAsync` function:
-
-    ```csharp
-    new FunctionToolDefinition(
-        name: nameof(SalesData.FetchSalesDataAsync),
-        description: "This function is used to answer user questions about Contoso sales data by executing SQLite queries against the database.",
-        parameters: BinaryData.FromObjectAsJson(new {
-            Type = "object",
-            Properties = new {
-                Query = new {
-                    Type = "string",
-                    Description = "The input should be a well-formed SQLite query to extract information based on the user's question. The query result will be returned as a JSON object."
-                }
-            },
-            Required = new [] { "query" }
-        },
-        new JsonSerializerOptions() { PropertyNamingPolicy = JsonNamingPolicy.CamelCase })
-    )
-    ```
+    :param sqlite_query: The input should be a well-formed SQLite query to extract information based on the user's question. The query result will be returned as a JSON object.
+    :return: Return data in JSON serializable format.
+    :rtype: str
+    """
+```
 
 ### Dynamic SQL Generation
 
@@ -60,75 +34,62 @@ When the app starts, it incorporates the database schema and key data into the i
 
 In this lab, you will enable the function logic to execute dynamic SQL queries against the SQLite database. The function is called by the LLM to answer user questions about Contoso sales data.
 
-=== "Python"
+1. Open the `main.py`.
 
-    1. Open the `main.py`.
+2. **Uncomment** the following lines by removing the **"# "** characters
 
-    2. **Uncomment** the following lines by removing the **"# "** characters
+    ```python
+    # INSTRUCTIONS_FILE = "instructions/instructions_function_calling.txt"
 
-        ```python
-        # INSTRUCTIONS_FILE = "instructions/instructions_function_calling.txt"
+    # toolset.add(functions)
+    ```
 
-        # toolset.add(functions)
-        ```
+    !!! warning
+        The lines to be uncommented are not adjacent. When removing the # character, ensure you also delete the space that follows it.
 
-        !!! warning
-            The lines to be uncommented are not adjacent. When removing the # character, ensure you also delete the space that follows it.
+3. Review the Code in main.py.
 
-    3. Review the Code in main.py.
+    After uncommenting, your code should look like this:
 
-        After uncommenting, your code should look like this:
-
-        ``` python
-        INSTRUCTIONS_FILE = "instructions/function_calling.txt"
-        # INSTRUCTIONS_FILE = "instructions/file_search.txt"
-        # INSTRUCTIONS_FILE = "instructions/code_interpreter.txt"
-        # INSTRUCTIONS_FILE = "instructions/code_interpreter_multilingual.txt"
-        # INSTRUCTIONS_FILE = "instructions/bing_grounding.txt"
+    ``` python
+    INSTRUCTIONS_FILE = "instructions/function_calling.txt"
+    # INSTRUCTIONS_FILE = "instructions/file_search.txt"
+    # INSTRUCTIONS_FILE = "instructions/code_interpreter.txt"
+    # INSTRUCTIONS_FILE = "instructions/code_interpreter_multilingual.txt"
+    # INSTRUCTIONS_FILE = "instructions/bing_grounding.txt"
 
 
-        async def add_agent_tools() -> None:
-            """Add tools for the agent."""
-            font_file_info = None
+    async def add_agent_tools() -> None:
+        """Add tools for the agent."""
+        font_file_info = None
 
-            # Add the functions tool
-            toolset.add(functions)
+        # Add the functions tool
+        toolset.add(functions)
 
-            # Add the tents data sheet to a new vector data store
-            # vector_store = await utilities.create_vector_store(
-            #     project_client,
-            #     files=[TENTS_DATA_SHEET_FILE],
-            #     vector_store_name="Contoso Product Information Vector Store",
-            # )
-            # file_search_tool = FileSearchTool(vector_store_ids=[vector_store.id])
-            # toolset.add(file_search_tool)
+        # Add the tents data sheet to a new vector data store
+        # vector_store = await utilities.create_vector_store(
+        #     project_client,
+        #     files=[TENTS_DATA_SHEET_FILE],
+        #     vector_store_name="Contoso Product Information Vector Store",
+        # )
+        # file_search_tool = FileSearchTool(vector_store_ids=[vector_store.id])
+        # toolset.add(file_search_tool)
 
-            # Add the code interpreter tool
-            # code_interpreter = CodeInterpreterTool()
-            # toolset.add(code_interpreter)
+        # Add the code interpreter tool
+        # code_interpreter = CodeInterpreterTool()
+        # toolset.add(code_interpreter)
 
-            # Add multilingual support to the code interpreter
-            # font_file_info = await utilities.upload_file(project_client, utilities.shared_files_path / FONTS_ZIP)
-            # code_interpreter.add_file(file_id=font_file_info.id)
+        # Add multilingual support to the code interpreter
+        # font_file_info = await utilities.upload_file(project_client, utilities.shared_files_path / FONTS_ZIP)
+        # code_interpreter.add_file(file_id=font_file_info.id)
 
-            # Add the Bing grounding tool
-            # bing_connection = await project_client.connections.get(connection_name=BING_CONNECTION_NAME)
-            # bing_grounding = BingGroundingTool(connection_id=bing_connection.id)
-            # toolset.add(bing_grounding)
+        # Add the Bing grounding tool
+        # bing_connection = await project_client.connections.get(connection_name=BING_CONNECTION_NAME)
+        # bing_grounding = BingGroundingTool(connection_id=bing_connection.id)
+        # toolset.add(bing_grounding)
 
-            return font_file_info
-        ```
-
-=== "C#"
-
-    1. Open the `Program.cs` file.
-
-    2. **Uncomment** and update the following code:
-
-        ```csharp
-        await using Lab lab = new Lab1(projectClient, apiDeploymentName);
-        await lab.RunAsync();
-        ```
+        return font_file_info
+    ```
 
 ### Review the Instructions
 
@@ -154,19 +115,10 @@ In this lab, you will enable the function logic to execute dynamic SQL queries a
     !!! info
         The {database_schema_string} placeholder in the instructions is replaced with the database schema when the app initializes.
 
-        === "Python"
-
-            ```python
-            # Replace the placeholder with the database schema string
-            instructions = instructions.replace("{database_schema_string}", database_schema_string)
-            ```
-
-        === "C#"
-
-            ```csharp
-            // Replace the placeholder with the database schema string
-            instructions = instructions.Replace("{database_schema_string}", databaseSchemaString);
-            ```
+        ```python
+        # Replace the placeholder with the database schema string
+        instructions = instructions.replace("{database_schema_string}", database_schema_string)
+        ```
 
 ## Run the Agent App
 
@@ -245,7 +197,7 @@ Start asking questions about Contoso sales data. For example:
 
 ## (Optional) Debug the App
 
-Set a [breakpoint](https://code.visualstudio.com/Docs/editor/debugging){:target="_blank"} in the `async_fetch_sales_data_using_sqlite_query` function located in `sales_data.py` to observe how the LLM requests data.
+Set a [breakpoint](https://code.visualstudio.com/Docs/editor/debugging) in the `async_fetch_sales_data_using_sqlite_query` function located in `sales_data.py` to observe how the LLM requests data.
 
 !!! info "Note: To use the debug feature, exit the previous run. Then set the breakpoint. Then run the application using the debugger icon in the sidebar. This will open up the debug sidebar, allowing you to watch stack traces and step through execution."
 

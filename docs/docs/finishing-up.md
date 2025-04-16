@@ -4,7 +4,7 @@ That's all for the lab portion of this workshop. Read on for key takeaways and a
 
 If you have a GitHub account, you can "star" this repository to make it easy for you to find again in the future.
 
-* Visit the GitHub repository at: [microsoft/build-your-first-agent-with-azure-ai-agent-service-workshop](https://github.com/microsoft/build-your-first-agent-with-azure-ai-agent-service-workshop){:target="_blank"}
+* Visit the GitHub repository at: [microsoft/build-your-first-agent-with-azure-ai-agent-service-workshop](https://github.com/microsoft/build-your-first-agent-with-azure-ai-agent-service-workshop)
 * Log into your GitHub account
 * Click **Star** in the top right
 
@@ -31,7 +31,7 @@ You now have your own copy of the workshop with your customizations in your GitH
 
 Your GitHub CodeSpace will shut down by itself, but it will consume a small amount of your compute and storage allotment until it is deleted. (You can see your usage in your [GitHub Billing summary](https://github.com/settings/billing/summary).) You can safely delete the codespace now, as follows:
 
-* Visit [github.com/codespaces](https://github.com/codespaces){:target="_blank"}
+* Visit [github.com/codespaces](https://github.com/codespaces)
 * At the bottom of the page, click the "..." menu to the right of your active codespace
 * Click **Delete**
   * At the "Are you sure?" prompt, click **Delete**.
@@ -43,7 +43,7 @@ Your GitHub CodeSpace will shut down by itself, but it will consume a small amou
 
 Most of the resources you created in this lab are pay-as-you-go resources, meaning you won't be charged any more for using them. However, some storage services used by AI Foundry may incur small ongoing charges. To delete all resources, follow these steps:
 
-* Vist the [Azure Portal](https://portal.azure.com){:target="_blank"}
+* Vist the [Azure Portal](https://portal.azure.com)
 * Click **Resource groups**
 * Click on your resource group `rg-contoso-agent-workshop`
 * Click **Delete Resource group**
