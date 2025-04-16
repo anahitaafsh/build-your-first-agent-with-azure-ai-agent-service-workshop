@@ -8,10 +8,10 @@ $AI_HUB_NAME = "agent-wksp"
 $AI_PROJECT_NAME = "agent-workshop"
 $STORAGE_NAME = "agentservicestorage"
 $AI_SERVICES_NAME = "agent-workshop"
-$MODEL_CAPACITY = 140
+$MODEL_CAPACITY = 60
 
 # Register the Bing Search resource provider
-az provider register --namespace 'Microsoft.Bing'
+# az provider register --namespace 'Microsoft.Bing'
 
 # Create the resource group
 az group create --name $RG_NAME --location $RG_LOCATION
@@ -35,7 +35,7 @@ $outputs = $jsonData.properties.outputs
 $aiProjectName = $outputs.aiProjectName.value
 $resourceGroupName = $outputs.resourceGroupName.value
 $subscriptionId = $outputs.subscriptionId.value
-$bingGroundingName = $outputs.bingGroundingName.value
+# $bingGroundingName = $outputs.bingGroundingName.value
 
 # Run the Azure CLI command to get discovery_url
 $discoveryUrl = az ml workspace show -n $aiProjectName --resource-group $resourceGroupName --query discovery_url -o tsv
@@ -58,7 +58,7 @@ if ($discoveryUrl) {
     New-Item -Path $envFilePath -ItemType File -Force | Out-Null
 
     $newLines = "PROJECT_CONNECTION_STRING=$projectConnectionString"
-    $newLines = $newLines + "`nBING_CONNECTION_NAME=$bingGroundingName"
+    # $newLines = $newLines + "`nBING_CONNECTION_NAME=$bingGroundingName"
     $newLines = $newLines + "`nMODEL_DEPLOYMENT_NAME=$MODEL_NAME"
 
     # Write the updated content back to the .env file
@@ -68,7 +68,7 @@ if ($discoveryUrl) {
 
     # Set the user secrets for the C# project
     dotnet user-secrets set "ConnectionStrings:AiAgentService" "$projectConnectionString" --project "$CSHARP_PROJECT_PATH"
-    dotnet user-secrets set "ConnectionStrings:BingGrounding" "$bingGroundingName" --project "$CSHARP_PROJECT_PATH"
+    # dotnet user-secrets set "ConnectionStrings:BingGrounding" "$bingGroundingName" --project "$CSHARP_PROJECT_PATH"
     dotnet user-secrets set "Azure:ModelName" "$MODEL_NAME" --project "$CSHARP_PROJECT_PATH"
 
     # Delete the output.json file

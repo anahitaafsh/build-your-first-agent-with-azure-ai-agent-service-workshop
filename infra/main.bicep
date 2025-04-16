@@ -28,7 +28,7 @@ param location string = resourceGroup().location
 param tags object = {}
 
 @description('Model name for deployment')
-param modelName string = 'gpt-4o'
+param modelName string = 'gpt-4o-mini'
 
 @description('Model format for deployment')
 param modelFormat string = 'OpenAI'
@@ -40,7 +40,7 @@ param modelVersion string = '2024-08-06'
 param modelSkuName string = 'GlobalStandard'
 
 @description('Model deployment capacity')
-param modelCapacity int = 140
+param modelCapacity int = 60
 
 @description('Model deployment location. If you want to deploy an Azure AI resource/model in different location than the rest of the resources created.')
 param modelLocation string = 'eastus2'

@@ -5,13 +5,13 @@ echo "Deploying the Azure resources..."
 # Define resource group parameters
 RG_NAME="rg-agent-workshop"
 RG_LOCATION="eastus2"
-MODEL_NAME="gpt-4o"
+MODEL_NAME="gpt-4o-mini"
 AI_HUB_NAME="agent-wksp"
 AI_PROJECT_NAME="agent-workshop"
 AI_PROJECT_FRIENDLY_NAME="Agent-Service-Workshop"
 STORAGE_NAME="agentservicestorage"
 AI_SERVICES_NAME="agent-workshop"
-MODEL_CAPACITY=140
+MODEL_CAPACITY=60
 
 # Create the resource group
 az group create --name "$RG_NAME" --location "$RG_LOCATION"
@@ -53,7 +53,7 @@ if [ -f output.json ]; then
     # Write to the .env file
     {
       echo "PROJECT_CONNECTION_STRING=$PROJECT_CONNECTION_STRING"
-      echo "BING_CONNECTION_NAME=\"groundingwithbingsearch\""
+      # echo "BING_CONNECTION_NAME=\"groundingwithbingsearch\""
       echo "MODEL_DEPLOYMENT_NAME=\"$MODEL_NAME\""
     } > "$ENV_FILE_PATH"
 
@@ -76,29 +76,29 @@ fi
 subId=$(az account show --query id --output tsv)
 objectId=$(az ad signed-in-user show --query id -o tsv)
 
-# Register the Bing Search resource provider
-echo "Attempting to register the Bing Search provider"
+# # Register the Bing Search resource provider
+# echo "Attempting to register the Bing Search provider"
 
-az provider register --namespace 'Microsoft.Bing'
+# az provider register --namespace 'Microsoft.Bing'
 
-# Check if the command succeeded based on its exit status
-if [ $? -ne 0 ]; then
-    echo "Bing Search registration FAILED. The attempt to register the Bing Search resource was unsuccessful, which means you cannot complete the Grounding with Bing Search lab."
-    exit 1
-fi
+# # Check if the command succeeded based on its exit status
+# if [ $? -ne 0 ]; then
+#     echo "Bing Search registration FAILED. The attempt to register the Bing Search resource was unsuccessful, which means you cannot complete the Grounding with Bing Search lab."
+#     exit 1
+# fi
 
-# Wait for a few seconds to allow Azure time to process the registration
-sleep 10
+# # Wait for a few seconds to allow Azure time to process the registration
+# sleep 10
 
-# Check if the provider is registered successfully
-provider_state=$(az provider show --namespace 'Microsoft.Bing' --query "registrationState" -o tsv)
+# # Check if the provider is registered successfully
+# provider_state=$(az provider show --namespace 'Microsoft.Bing' --query "registrationState" -o tsv)
 
-if [ "$provider_state" != "Registered" ]; then
-    echo "Bing Search registration FAILED. The attempt to register the Bing Search resource was unsuccessful, which means you cannot complete the Grounding with Bing Search lab."
-    exit 1
-fi
+# if [ "$provider_state" != "Registered" ]; then
+#     echo "Bing Search registration FAILED. The attempt to register the Bing Search resource was unsuccessful, which means you cannot complete the Grounding with Bing Search lab."
+#     exit 1
+# fi
 
-echo "Bing Search registration succeeded."
+# echo "Bing Search registration succeeded."
 
 #Adding data scientist role
 echo "Adding data scientist user role"

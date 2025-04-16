@@ -8,7 +8,7 @@ from azure.ai.projects.models import (
     AgentThread,
     AsyncFunctionTool,
     AsyncToolSet,
-    BingGroundingTool,
+    # BingGroundingTool,
     CodeInterpreterTool,
     FileSearchTool,
 )
@@ -30,7 +30,7 @@ TENTS_DATA_SHEET_FILE = "datasheet/contoso-tents-datasheet.pdf"
 FONTS_ZIP = "fonts/fonts.zip"
 API_DEPLOYMENT_NAME = os.getenv("MODEL_DEPLOYMENT_NAME")
 PROJECT_CONNECTION_STRING = os.environ["PROJECT_CONNECTION_STRING"]
-BING_CONNECTION_NAME = os.getenv("BING_CONNECTION_NAME")
+# BING_CONNECTION_NAME = os.getenv("BING_CONNECTION_NAME")
 MAX_COMPLETION_TOKENS = 10240
 MAX_PROMPT_TOKENS = 20480
 # The LLM is used to generate the SQL queries.
