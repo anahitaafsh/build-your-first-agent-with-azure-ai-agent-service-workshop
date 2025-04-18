@@ -18,11 +18,11 @@ This workshop demonstrated how to leverage the Azure AI Agent Service to create 
 
 - The agent can create downloadable files, including Excel, CSV, JSON, and image formats, providing users with flexible options to analyze and share data.
 
-## 6. Multi-Language Support
+## 5. Multi-Language Support
 
 - The agent and LLM support multiple languages, offering an inclusive experience for users from diverse linguistic backgrounds.
 
-## 7. Adaptability and Customization
+## 6. Adaptability and Customization
 
 - The workshop emphasizes the flexibility of the Azure AI Agent Service, allowing you to adapt the agent for various use cases, such as customer support or competitive analysis, by modifying instructions and integrating additional tools.
 

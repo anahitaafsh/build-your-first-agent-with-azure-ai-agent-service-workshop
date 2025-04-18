@@ -8,7 +8,7 @@ In this workshop, you will create the Contoso Sales Agent: a conversational agen
 
     This agent is built on Microsoft Azure services.
 
-      - **Generative AI model**: The underlying LLM powering this app is the [Azure OpenAI gpt-4o-mini](https://learn.microsoft.com/azure/ai-services/openai/concepts/models?tabs=global-standard%2Cstandard-chat-completions#gpt-4o-and-gpt-4-turbo) LLM.
+      - **Generative AI model**: The underlying LLM powering this app is the [Azure OpenAI gpt-4o-mini](https://learn.microsoft.com/azure/ai-services/openai/concepts/models?tabs=global-standard%2Cstandard-chat-completions#gpt-4o-and-gpt-4-turbo) LLM. The original lab utilizes Azure OpenAI gpt-4o, and if your subscription allows, can try [it](https://github.com/microsoft/build-your-first-agent-with-azure-ai-agent-service-workshop) out after this event.
 
       - **Vector Store**: We will provide the agent with product information as a PDF file to support its queries. The agent will use the "basic agent setup" of the [Azure AI Agent Service file search tool](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/file-search?tabs=python&pivots=overview) to find relevant portions of the document with vector search and provide them to the agent as context.
 
@@ -16,7 +16,7 @@ In this workshop, you will create the Contoso Sales Agent: a conversational agen
 
 2. **Azure AI Foundry (SDK)**
 
-    The workshop is offered in both [Python](https://learn.microsoft.com/python/api/overview/azure/ai-projects-readme?view=azure-python-preview&context=%2Fazure%2Fai-services%2Fagents%2Fcontext%2Fcontext) and [C#](https://learn.microsoft.com/en-us/dotnet/api/overview/azure/ai.projects-readme?view=azure-dotnet-preview&viewFallbackFrom=azure-python-preview) using the Azure AI Foundry SDK. The SDK supports key features of the Azure AI Agents service, including [Code Interpreter](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter?view=azure-python-preview&tabs=python&pivots=overview) and [Function Calling](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/function-calling?view=azure-python-preview&tabs=python&pivots=overview).
+    The workshop is offered in both [Python](https://learn.microsoft.com/python/api/overview/azure/ai-projects-readme?view=azure-python-preview&context=%2Fazure%2Fai-services%2Fagents%2Fcontext%2Fcontext) and [C#](https://learn.microsoft.com/en-us/dotnet/api/overview/azure/ai.projects-readme?view=azure-dotnet-preview&viewFallbackFrom=azure-python-preview) using the Azure AI Foundry SDK. The SDK supports key features of the Azure AI Agents service, including [Code Interpreter](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter?view=azure-python-preview&tabs=python&pivots=overview) and [Function Calling](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/function-calling?view=azure-python-preview&tabs=python&pivots=overview). To make things easier, we will be using Python.
 
 3. **Database**
 

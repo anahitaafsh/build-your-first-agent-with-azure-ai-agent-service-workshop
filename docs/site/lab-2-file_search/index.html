@@ -611,7 +611,7 @@
 <p>Normally, you wouldn’t create a new vector store and upload documents each time the app starts. Instead, you’d create the vector store once, upload potentially thousands of documents, and connect the store to the agent.</p>
 <p>A <a href="https://en.wikipedia.org/wiki/Vector_database">vector store</a> is a database optimized for storing and searching vectors (numeric representations of text data). The File Search tool uses the vector store for <a href="https://en.wikipedia.org/wiki/Semantic_search">semantic search</a> to search for relevant information in the uploaded document.</p>
 <h2 id="lab-exercise">Lab Exercise<a class="headerlink" href="#lab-exercise" title="Permanent link">&para;</a></h2>
-<pre><code>1. Open the **shared/datasheet/contoso-tents-datasheet.pdf** file from VS Code. The PDF file includes detailed product descriptions for the tents sold by Contoso.
+<pre><code>1. Open the **shared/datasheet/contoso-tents-datasheet.pdf** file. The PDF file includes detailed product descriptions for the tents sold by Contoso.
 
 2. **Review** the file’s contents to understand the information it contains, as this will be used to ground the agent’s responses.
 
@@ -643,8 +643,6 @@ INSTRUCTIONS_FILE = "instructions/function_calling.txt"
 INSTRUCTIONS_FILE = "instructions/file_search.txt"
 # INSTRUCTIONS_FILE = "instructions/code_interpreter.txt"
 # INSTRUCTIONS_FILE = "instructions/code_interpreter_multilingual.txt"
-# INSTRUCTIONS_FILE = "instructions/bing_grounding.txt"
-
 
 async def add_agent_tools() -&gt; None:
     """Add tools for the agent."""
@@ -670,11 +668,6 @@ async def add_agent_tools() -&gt; None:
     # font_file_info = await utilities.upload_file(project_client, utilities.shared_files_path / FONTS_ZIP)
     # code_interpreter.add_file(file_id=font_file_info.id)
 
-    # Add the Bing grounding tool
-    # bing_connection = await project_client.connections.get(connection_name=BING_CONNECTION_NAME)
-    # bing_grounding = BingGroundingTool(connection_id=bing_connection.id)
-    # toolset.add(bing_grounding)
-
     return font_file_info
 ```
 </code></pre>
@@ -687,7 +680,7 @@ async def add_agent_tools() -&gt; None:
 </ol>
 <h2 id="run-the-agent-app">Run the Agent App<a class="headerlink" href="#run-the-agent-app" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Press <kbd>F5</kbd> to run the app.</li>
+<li>Press <kbd>F5</kbd> to run the app, or right click on <kbd>main.py</kbd> and select <strong>Run Python file in Terminal</strong>.</li>
 <li>In the terminal, the app starts, and the agent app will prompt you to <strong>Enter your query</strong>.</li>
 </ol>
 <h3 id="start-a-conversation-with-the-agent">Start a Conversation with the Agent<a class="headerlink" href="#start-a-conversation-with-the-agent" title="Permanent link">&para;</a></h3>

@@ -29,8 +29,6 @@ In this lab, you'll enable the Code Interpreter to execute Python code generated
     INSTRUCTIONS_FILE = "instructions/file_search.txt"
     INSTRUCTIONS_FILE = "instructions/code_interpreter.txt"
     # INSTRUCTIONS_FILE = "instructions/code_interpreter_multilingual.txt"
-    # INSTRUCTIONS_FILE = "instructions/bing_grounding.txt"
-
 
     async def add_agent_tools() -> None:
         """Add tools for the agent."""
@@ -56,11 +54,6 @@ In this lab, you'll enable the Code Interpreter to execute Python code generated
         # font_file_info = await utilities.upload_file(project_client, utilities.shared_files_path / FONTS_ZIP)
         # code_interpreter.add_file(file_id=font_file_info.id)
 
-        # Add the Bing grounding tool
-        # bing_connection = await project_client.connections.get(connection_name=BING_CONNECTION_NAME)
-        # bing_grounding = BingGroundingTool(connection_id=bing_connection.id)
-        # toolset.add(bing_grounding)
-
         return font_file_info
     ```
 
@@ -75,7 +68,7 @@ In this lab, you'll enable the Code Interpreter to execute Python code generated
 
 ## Run the Agent App
 
-1. Press <kbd>F5</kbd> to run the app.
+1. Press <kbd>F5</kbd> to run the app, or right click on <kbd>main.py</kbd> and select **Run Python file in Terminal**.
 2. In the terminal, the app will start, and the agent app will prompt you to  **Enter your query**.
 
 ### Start a Conversation with the Agent
@@ -86,7 +79,7 @@ Try these questions:
 
     Once the task is complete, the pie chart image will be saved in the **shared/files** subfolder. Note that this subfolder is created the first time this task is run, and is never checked into source control.
 
-    Open the folder in VS Code and click on the image file to view it. (Tip: in Codespaces, you can Control-Click the link that the agent outputs in its response to view the file.)
+    Open the folder in the side menu and click on the image file to view it. (Tip: in Codespaces, you can Control-Click the link that the agent outputs in its response to view the file.)
 
     !!! info
         This might feel like magic, so what’s happening behind the scenes to make it all work?

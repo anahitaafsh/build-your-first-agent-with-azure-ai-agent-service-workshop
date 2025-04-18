@@ -56,8 +56,6 @@ In this lab, you will enable the function logic to execute dynamic SQL queries a
     # INSTRUCTIONS_FILE = "instructions/file_search.txt"
     # INSTRUCTIONS_FILE = "instructions/code_interpreter.txt"
     # INSTRUCTIONS_FILE = "instructions/code_interpreter_multilingual.txt"
-    # INSTRUCTIONS_FILE = "instructions/bing_grounding.txt"
-
 
     async def add_agent_tools() -> None:
         """Add tools for the agent."""
@@ -83,15 +81,12 @@ In this lab, you will enable the function logic to execute dynamic SQL queries a
         # font_file_info = await utilities.upload_file(project_client, utilities.shared_files_path / FONTS_ZIP)
         # code_interpreter.add_file(file_id=font_file_info.id)
 
-        # Add the Bing grounding tool
-        # bing_connection = await project_client.connections.get(connection_name=BING_CONNECTION_NAME)
-        # bing_grounding = BingGroundingTool(connection_id=bing_connection.id)
-        # toolset.add(bing_grounding)
-
         return font_file_info
     ```
 
 ### Review the Instructions
+
+Note that there is nothing you need to do in this section, but just review the resources and instructions to understand what the agent is doing.
 
  1. Open the **shared/instructions/function_calling.txt** file.
 
@@ -122,7 +117,7 @@ In this lab, you will enable the function logic to execute dynamic SQL queries a
 
 ## Run the Agent App
 
-1. Press <kbd>F5</kbd> to run the app.
+1. Press <kbd>F5</kbd> to run the app, or right click on <kbd>main.py</kbd> and select **Run Python file in Terminal**.
 2. In the terminal, you'll see the app start, and the agent app will prompt you to **Enter your query**.
 
     ![Agent App](./media/run-the-agent.png){:width="600"}
@@ -194,6 +189,10 @@ Start asking questions about Contoso sales data. For example:
 6. **Show sales by region as a pie chart**
 
     Our agent can't create charts ... yet. We'll fix that in the next lab.
+
+7. **Stop the Agent App**
+
+    When you're done, type **exit** to clean up the agent resources and stop the app.
 
 ## (Optional) Debug the App
 

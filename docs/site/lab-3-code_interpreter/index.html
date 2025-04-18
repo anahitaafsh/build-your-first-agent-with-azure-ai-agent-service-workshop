@@ -631,8 +631,6 @@
 <span class="n">INSTRUCTIONS_FILE</span> <span class="o">=</span> <span class="s2">&quot;instructions/file_search.txt&quot;</span>
 <span class="n">INSTRUCTIONS_FILE</span> <span class="o">=</span> <span class="s2">&quot;instructions/code_interpreter.txt&quot;</span>
 <span class="c1"># INSTRUCTIONS_FILE = &quot;instructions/code_interpreter_multilingual.txt&quot;</span>
-<span class="c1"># INSTRUCTIONS_FILE = &quot;instructions/bing_grounding.txt&quot;</span>
-
 
 <span class="k">async</span> <span class="k">def</span> <span class="nf">add_agent_tools</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Add tools for the agent.&quot;&quot;&quot;</span>
@@ -658,11 +656,6 @@
     <span class="c1"># font_file_info = await utilities.upload_file(project_client, utilities.shared_files_path / FONTS_ZIP)</span>
     <span class="c1"># code_interpreter.add_file(file_id=font_file_info.id)</span>
 
-    <span class="c1"># Add the Bing grounding tool</span>
-    <span class="c1"># bing_connection = await project_client.connections.get(connection_name=BING_CONNECTION_NAME)</span>
-    <span class="c1"># bing_grounding = BingGroundingTool(connection_id=bing_connection.id)</span>
-    <span class="c1"># toolset.add(bing_grounding)</span>
-
     <span class="k">return</span> <span class="n">font_file_info</span>
 </code></pre></div>
 </li>
@@ -681,7 +674,7 @@
 </ol>
 <h2 id="run-the-agent-app">Run the Agent App<a class="headerlink" href="#run-the-agent-app" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Press <kbd>F5</kbd> to run the app.</li>
+<li>Press <kbd>F5</kbd> to run the app, or right click on <kbd>main.py</kbd> and select <strong>Run Python file in Terminal</strong>.</li>
 <li>In the terminal, the app will start, and the agent app will prompt you to  <strong>Enter your query</strong>.</li>
 </ol>
 <h3 id="start-a-conversation-with-the-agent">Start a Conversation with the Agent<a class="headerlink" href="#start-a-conversation-with-the-agent" title="Permanent link">&para;</a></h3>
@@ -690,7 +683,7 @@
 <li>
 <p><strong>Show sales by region as a pie chart</strong></p>
 <p>Once the task is complete, the pie chart image will be saved in the <strong>shared/files</strong> subfolder. Note that this subfolder is created the first time this task is run, and is never checked into source control.</p>
-<p>Open the folder in VS Code and click on the image file to view it. (Tip: in Codespaces, you can Control-Click the link that the agent outputs in its response to view the file.)</p>
+<p>Open the folder in the side menu and click on the image file to view it. (Tip: in Codespaces, you can Control-Click the link that the agent outputs in its response to view the file.)</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>This might feel like magic, so what’s happening behind the scenes to make it all work?</p>

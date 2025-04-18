@@ -12,7 +12,7 @@ A [vector store](https://en.wikipedia.org/wiki/Vector_database) is a database op
 
 ## Lab Exercise
 
-    1. Open the **shared/datasheet/contoso-tents-datasheet.pdf** file from VS Code. The PDF file includes detailed product descriptions for the tents sold by Contoso.
+    1. Open the **shared/datasheet/contoso-tents-datasheet.pdf** file. The PDF file includes detailed product descriptions for the tents sold by Contoso.
 
     2. **Review** the file’s contents to understand the information it contains, as this will be used to ground the agent’s responses.
 
@@ -44,9 +44,7 @@ A [vector store](https://en.wikipedia.org/wiki/Vector_database) is a database op
     INSTRUCTIONS_FILE = "instructions/file_search.txt"
     # INSTRUCTIONS_FILE = "instructions/code_interpreter.txt"
     # INSTRUCTIONS_FILE = "instructions/code_interpreter_multilingual.txt"
-    # INSTRUCTIONS_FILE = "instructions/bing_grounding.txt"
-
-
+    
     async def add_agent_tools() -> None:
         """Add tools for the agent."""
         font_file_info = None
@@ -71,11 +69,6 @@ A [vector store](https://en.wikipedia.org/wiki/Vector_database) is a database op
         # font_file_info = await utilities.upload_file(project_client, utilities.shared_files_path / FONTS_ZIP)
         # code_interpreter.add_file(file_id=font_file_info.id)
 
-        # Add the Bing grounding tool
-        # bing_connection = await project_client.connections.get(connection_name=BING_CONNECTION_NAME)
-        # bing_grounding = BingGroundingTool(connection_id=bing_connection.id)
-        # toolset.add(bing_grounding)
-
         return font_file_info
     ```
 
@@ -87,7 +80,7 @@ A [vector store](https://en.wikipedia.org/wiki/Vector_database) is a database op
 
 ## Run the Agent App
 
-1. Press <kbd>F5</kbd> to run the app.
+1. Press <kbd>F5</kbd> to run the app, or right click on <kbd>main.py</kbd> and select **Run Python file in Terminal**.
 1. In the terminal, the app starts, and the agent app will prompt you to **Enter your query**.
 
 ### Start a Conversation with the Agent

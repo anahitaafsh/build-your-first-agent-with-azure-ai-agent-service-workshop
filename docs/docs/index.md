@@ -1,6 +1,6 @@
 # Build your code-first agent with Azure AI Foundry
 
-### Edited for the Copilot Studio and Azure AI Foundry Events 
+### Edited for the Copilot Studio and Azure AI Foundry Events! 
 
 Imagine you are a sales manager at Contoso, a multinational retail company that sells outdoor equipment. You need to analyze sales data to find trends, understand customer preferences, and make informed business decisions. To help you, Contoso has developed a conversational agent that can answer questions about your sales data.
 
