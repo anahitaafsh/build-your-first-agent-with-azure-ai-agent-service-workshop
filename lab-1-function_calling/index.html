@@ -629,8 +629,6 @@
 <span class="c1"># INSTRUCTIONS_FILE = &quot;instructions/file_search.txt&quot;</span>
 <span class="c1"># INSTRUCTIONS_FILE = &quot;instructions/code_interpreter.txt&quot;</span>
 <span class="c1"># INSTRUCTIONS_FILE = &quot;instructions/code_interpreter_multilingual.txt&quot;</span>
-<span class="c1"># INSTRUCTIONS_FILE = &quot;instructions/bing_grounding.txt&quot;</span>
-
 
 <span class="k">async</span> <span class="k">def</span> <span class="nf">add_agent_tools</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Add tools for the agent.&quot;&quot;&quot;</span>
@@ -656,16 +654,12 @@
     <span class="c1"># font_file_info = await utilities.upload_file(project_client, utilities.shared_files_path / FONTS_ZIP)</span>
     <span class="c1"># code_interpreter.add_file(file_id=font_file_info.id)</span>
 
-    <span class="c1"># Add the Bing grounding tool</span>
-    <span class="c1"># bing_connection = await project_client.connections.get(connection_name=BING_CONNECTION_NAME)</span>
-    <span class="c1"># bing_grounding = BingGroundingTool(connection_id=bing_connection.id)</span>
-    <span class="c1"># toolset.add(bing_grounding)</span>
-
     <span class="k">return</span> <span class="n">font_file_info</span>
 </code></pre></div>
 </li>
 </ol>
 <h3 id="review-the-instructions">Review the Instructions<a class="headerlink" href="#review-the-instructions" title="Permanent link">&para;</a></h3>
+<p>Note that there is nothing you need to do in this section, but just review the resources and instructions to understand what the agent is doing.</p>
 <ol>
 <li>
 <p>Open the <strong>shared/instructions/function_calling.txt</strong> file.</p>
@@ -701,7 +695,7 @@
 </ol>
 <h2 id="run-the-agent-app">Run the Agent App<a class="headerlink" href="#run-the-agent-app" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Press <kbd>F5</kbd> to run the app.</li>
+<li>Press <kbd>F5</kbd> to run the app, or right click on <kbd>main.py</kbd> and select <strong>Run Python file in Terminal</strong>.</li>
 <li>
 <p>In the terminal, you'll see the app start, and the agent app will prompt you to <strong>Enter your query</strong>.</p>
 <p><a class="glightbox" href="../media/run-the-agent.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Agent App" src="../media/run-the-agent.png" width="600" /></a></p>
@@ -776,6 +770,10 @@ sales transaction for Contoso, with information about the product, product categ
 <li>
 <p><strong>Show sales by region as a pie chart</strong></p>
 <p>Our agent can't create charts ... yet. We'll fix that in the next lab.</p>
+</li>
+<li>
+<p><strong>Stop the Agent App</strong></p>
+<p>When you're done, type <strong>exit</strong> to clean up the agent resources and stop the app.</p>
 </li>
 </ol>
 <h2 id="optional-debug-the-app">(Optional) Debug the App<a class="headerlink" href="#optional-debug-the-app" title="Permanent link">&para;</a></h2>

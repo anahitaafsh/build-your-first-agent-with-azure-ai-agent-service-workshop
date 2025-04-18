@@ -581,7 +581,7 @@
 <p>This agent is built on Microsoft Azure services.</p>
 <ul>
 <li>
-<p><strong>Generative AI model</strong>: The underlying LLM powering this app is the <a href="https://learn.microsoft.com/azure/ai-services/openai/concepts/models?tabs=global-standard%2Cstandard-chat-completions#gpt-4o-and-gpt-4-turbo">Azure OpenAI gpt-4o-mini</a> LLM.</p>
+<p><strong>Generative AI model</strong>: The underlying LLM powering this app is the <a href="https://learn.microsoft.com/azure/ai-services/openai/concepts/models?tabs=global-standard%2Cstandard-chat-completions#gpt-4o-and-gpt-4-turbo">Azure OpenAI gpt-4o-mini</a> LLM. The original lab utilizes Azure OpenAI gpt-4o, and if your subscription allows, can try <a href="https://github.com/microsoft/build-your-first-agent-with-azure-ai-agent-service-workshop">it</a> out after this event.</p>
 </li>
 <li>
 <p><strong>Vector Store</strong>: We will provide the agent with product information as a PDF file to support its queries. The agent will use the "basic agent setup" of the <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/file-search?tabs=python&amp;pivots=overview">Azure AI Agent Service file search tool</a> to find relevant portions of the document with vector search and provide them to the agent as context.</p>
@@ -593,7 +593,7 @@
 </li>
 <li>
 <p><strong>Azure AI Foundry (SDK)</strong></p>
-<p>The workshop is offered in both <a href="https://learn.microsoft.com/python/api/overview/azure/ai-projects-readme?view=azure-python-preview&amp;context=%2Fazure%2Fai-services%2Fagents%2Fcontext%2Fcontext">Python</a> and <a href="https://learn.microsoft.com/en-us/dotnet/api/overview/azure/ai.projects-readme?view=azure-dotnet-preview&amp;viewFallbackFrom=azure-python-preview">C#</a> using the Azure AI Foundry SDK. The SDK supports key features of the Azure AI Agents service, including <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter?view=azure-python-preview&amp;tabs=python&amp;pivots=overview">Code Interpreter</a> and <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/function-calling?view=azure-python-preview&amp;tabs=python&amp;pivots=overview">Function Calling</a>.</p>
+<p>The workshop is offered in both <a href="https://learn.microsoft.com/python/api/overview/azure/ai-projects-readme?view=azure-python-preview&amp;context=%2Fazure%2Fai-services%2Fagents%2Fcontext%2Fcontext">Python</a> and <a href="https://learn.microsoft.com/en-us/dotnet/api/overview/azure/ai.projects-readme?view=azure-dotnet-preview&amp;viewFallbackFrom=azure-python-preview">C#</a> using the Azure AI Foundry SDK. The SDK supports key features of the Azure AI Agents service, including <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter?view=azure-python-preview&amp;tabs=python&amp;pivots=overview">Code Interpreter</a> and <a href="https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/function-calling?view=azure-python-preview&amp;tabs=python&amp;pivots=overview">Function Calling</a>. To make things easier, we will be using Python.</p>
 </li>
 <li>
 <p><strong>Database</strong></p>

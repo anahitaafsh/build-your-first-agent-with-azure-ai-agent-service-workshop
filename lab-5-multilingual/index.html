@@ -685,9 +685,9 @@
 <h2 id="lab-exercise">Lab Exercise<a class="headerlink" href="#lab-exercise" title="Permanent link">&para;</a></h2>
 <p>Earlier labs didn’t include multilingual support because uploading the required font ZIP file and linking it to the Code Interpreter is time-consuming. In this lab, we’ll enable multilingual support by uploading the necessary fonts. You’ll also learn some tips on how to guide the Code Interpreter using extended instructions.</p>
 <h2 id="rerun-the-previous-lab">Rerun the previous lab<a class="headerlink" href="#rerun-the-previous-lab" title="Permanent link">&para;</a></h2>
-<p>First, we're going to rerun the previous lab so we can see how the Code Interpreter supports multilingual text.</p>
+<p>First, we're going to rerun the previous lab so we can see how the Code Interpreter supports multilingual text. </p>
 <ol>
-<li>Start the agent app by pressing <kbd>F5</kbd>.</li>
+<li>Start the agent app by pressing <kbd>F5</kbd> or right click on <kbd>main.py</kbd> and select <strong>Run Python file in Terminal</strong>..</li>
 <li>In the terminal, the app will start, and the agent app will prompt you to  <strong>Enter your query</strong>.</li>
 <li>
 <p>Try these questions:</p>
@@ -728,7 +728,6 @@
 <div class="highlight"><pre><span></span><code><span class="n">INSTRUCTIONS_FILE</span> <span class="o">=</span> <span class="s2">&quot;instructions/function_calling.txt&quot;</span>
 <span class="n">INSTRUCTIONS_FILE</span> <span class="o">=</span> <span class="s2">&quot;instructions/file_search.txt&quot;</span>
 <span class="n">INSTRUCTIONS_FILE</span> <span class="o">=</span> <span class="s2">&quot;instructions/code_interpreter.txt&quot;</span>
-<span class="n">INSTRUCTIONS_FILE</span> <span class="o">=</span> <span class="s2">&quot;instructions/bing_grounding.txt&quot;</span>
 <span class="n">INSTRUCTIONS_FILE</span> <span class="o">=</span> <span class="s2">&quot;instructions/code_interpreter_multilingual.txt&quot;</span>
 
 
@@ -755,11 +754,6 @@
     <span class="c1"># Add multilingual support to the code interpreter</span>
     <span class="n">font_file_info</span> <span class="o">=</span> <span class="k">await</span> <span class="n">utilities</span><span class="o">.</span><span class="n">upload_file</span><span class="p">(</span><span class="n">project_client</span><span class="p">,</span> <span class="n">utilities</span><span class="o">.</span><span class="n">shared_files_path</span> <span class="o">/</span> <span class="n">FONTS_ZIP</span><span class="p">)</span>
     <span class="n">code_interpreter</span><span class="o">.</span><span class="n">add_file</span><span class="p">(</span><span class="n">file_id</span><span class="o">=</span><span class="n">font_file_info</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
-
-    <span class="c1"># Add the Bing grounding tool</span>
-    <span class="n">bing_connection</span> <span class="o">=</span> <span class="k">await</span> <span class="n">project_client</span><span class="o">.</span><span class="n">connections</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">connection_name</span><span class="o">=</span><span class="n">BING_CONNECTION_NAME</span><span class="p">)</span>
-    <span class="n">bing_grounding</span> <span class="o">=</span> <span class="n">BingGroundingTool</span><span class="p">(</span><span class="n">connection_id</span><span class="o">=</span><span class="n">bing_connection</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
-    <span class="n">toolset</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">bing_grounding</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">font_file_info</span>
 </code></pre></div>
@@ -805,7 +799,7 @@
 </ol>
 <h2 id="run-the-agent-app">Run the Agent App<a class="headerlink" href="#run-the-agent-app" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Press <kbd>F5</kbd> to run the app.</li>
+<li>Press <kbd>F5</kbd> to run the app, or right click on <kbd>main.py</kbd> and select <strong>Run Python file in Terminal</strong>.</li>
 <li>In the terminal, the app will start, and the agent app will prompt you to  <strong>Enter your query</strong>.</li>
 </ol>
 <h3 id="start-a-conversation-with-the-agent">Start a Conversation with the Agent<a class="headerlink" href="#start-a-conversation-with-the-agent" title="Permanent link">&para;</a></h3>
