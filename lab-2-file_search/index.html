@@ -611,66 +611,69 @@
 <p>Normally, you wouldn’t create a new vector store and upload documents each time the app starts. Instead, you’d create the vector store once, upload potentially thousands of documents, and connect the store to the agent.</p>
 <p>A <a href="https://en.wikipedia.org/wiki/Vector_database">vector store</a> is a database optimized for storing and searching vectors (numeric representations of text data). The File Search tool uses the vector store for <a href="https://en.wikipedia.org/wiki/Semantic_search">semantic search</a> to search for relevant information in the uploaded document.</p>
 <h2 id="lab-exercise">Lab Exercise<a class="headerlink" href="#lab-exercise" title="Permanent link">&para;</a></h2>
-<pre><code>1. Open the **shared/datasheet/contoso-tents-datasheet.pdf** file. The PDF file includes detailed product descriptions for the tents sold by Contoso.
+<ol>
+<li>
+<p>Open the <strong>shared/datasheet/contoso-tents-datasheet.pdf</strong> file. The PDF file includes detailed product descriptions for the tents sold by Contoso.</p>
+</li>
+<li>
+<p><strong>Review</strong> the file’s contents to understand the information it contains, as this will be used to ground the agent’s responses.</p>
+</li>
+<li>
+<p>Open the file <code>main.py</code>.</p>
+</li>
+<li>
+<p><strong>Uncomment</strong> the following lines by removing the <strong>"# "</strong> characters</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1"># INSTRUCTIONS_FILE = &quot;instructions/file_search.txt&quot;</span>
 
-2. **Review** the file’s contents to understand the information it contains, as this will be used to ground the agent’s responses.
+<span class="c1"># vector_store = await utilities.create_vector_store(</span>
+<span class="c1">#     project_client,</span>
+<span class="c1">#     files=[TENTS_DATA_SHEET_FILE],</span>
+<span class="c1">#     vector_name_name=&quot;Contoso Product Information Vector Store&quot;,</span>
+<span class="c1"># )</span>
+<span class="c1"># file_search_tool = FileSearchTool(vector_store_ids=[vector_store.id])</span>
+<span class="c1"># toolset.add(file_search_tool)</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The lines to be uncommented are not adjacent. When removing the # character, ensure you also delete the space that follows it.</p>
+</div>
+<ol>
+<li>Review the code in the <code>main.py</code> file.</li>
+</ol>
+<p>After uncommenting, your code should look like this:</p>
+<div class="highlight"><pre><span></span><code><span class="n">INSTRUCTIONS_FILE</span> <span class="o">=</span> <span class="s2">&quot;instructions/function_calling.txt&quot;</span>
+<span class="n">INSTRUCTIONS_FILE</span> <span class="o">=</span> <span class="s2">&quot;instructions/file_search.txt&quot;</span>
+<span class="c1"># INSTRUCTIONS_FILE = &quot;instructions/code_interpreter.txt&quot;</span>
+<span class="c1"># INSTRUCTIONS_FILE = &quot;instructions/code_interpreter_multilingual.txt&quot;</span>
 
-1. Open the file `main.py`.
+<span class="k">async</span> <span class="k">def</span> <span class="nf">add_agent_tools</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Add tools for the agent.&quot;&quot;&quot;</span>
+    <span class="n">font_file_info</span> <span class="o">=</span> <span class="kc">None</span>
 
-2. **Uncomment** the following lines by removing the **"# "** characters
+    <span class="c1"># Add the functions tool</span>
+    <span class="n">toolset</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">functions</span><span class="p">)</span>
 
-```python
-# INSTRUCTIONS_FILE = "instructions/file_search.txt"
+    <span class="c1"># Add the tents data sheet to a new vector data store</span>
+    <span class="n">vector_store</span> <span class="o">=</span> <span class="k">await</span> <span class="n">utilities</span><span class="o">.</span><span class="n">create_vector_store</span><span class="p">(</span>
+        <span class="n">project_client</span><span class="p">,</span>
+        <span class="n">files</span><span class="o">=</span><span class="p">[</span><span class="n">TENTS_DATA_SHEET_FILE</span><span class="p">],</span>
+        <span class="n">vector_store_name</span><span class="o">=</span><span class="s2">&quot;Contoso Product Information Vector Store&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">file_search_tool</span> <span class="o">=</span> <span class="n">FileSearchTool</span><span class="p">(</span><span class="n">vector_store_ids</span><span class="o">=</span><span class="p">[</span><span class="n">vector_store</span><span class="o">.</span><span class="n">id</span><span class="p">])</span>
+    <span class="n">toolset</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">file_search_tool</span><span class="p">)</span>
 
-# vector_store = await utilities.create_vector_store(
-#     project_client,
-#     files=[TENTS_DATA_SHEET_FILE],
-#     vector_name_name="Contoso Product Information Vector Store",
-# )
-# file_search_tool = FileSearchTool(vector_store_ids=[vector_store.id])
-# toolset.add(file_search_tool)
-```
+    <span class="c1"># Add the code interpreter tool</span>
+    <span class="c1"># code_interpreter = CodeInterpreterTool()</span>
+    <span class="c1"># toolset.add(code_interpreter)</span>
 
-!!! warning
-    The lines to be uncommented are not adjacent. When removing the # character, ensure you also delete the space that follows it.
+    <span class="c1"># Add multilingual support to the code interpreter</span>
+    <span class="c1"># font_file_info = await utilities.upload_file(project_client, utilities.shared_files_path / FONTS_ZIP)</span>
+    <span class="c1"># code_interpreter.add_file(file_id=font_file_info.id)</span>
 
-3. Review the code in the `main.py` file.
-
-After uncommenting, your code should look like this:
-
-```python
-INSTRUCTIONS_FILE = "instructions/function_calling.txt"
-INSTRUCTIONS_FILE = "instructions/file_search.txt"
-# INSTRUCTIONS_FILE = "instructions/code_interpreter.txt"
-# INSTRUCTIONS_FILE = "instructions/code_interpreter_multilingual.txt"
-
-async def add_agent_tools() -&gt; None:
-    """Add tools for the agent."""
-    font_file_info = None
-
-    # Add the functions tool
-    toolset.add(functions)
-
-    # Add the tents data sheet to a new vector data store
-    vector_store = await utilities.create_vector_store(
-        project_client,
-        files=[TENTS_DATA_SHEET_FILE],
-        vector_store_name="Contoso Product Information Vector Store",
-    )
-    file_search_tool = FileSearchTool(vector_store_ids=[vector_store.id])
-    toolset.add(file_search_tool)
-
-    # Add the code interpreter tool
-    # code_interpreter = CodeInterpreterTool()
-    # toolset.add(code_interpreter)
-
-    # Add multilingual support to the code interpreter
-    # font_file_info = await utilities.upload_file(project_client, utilities.shared_files_path / FONTS_ZIP)
-    # code_interpreter.add_file(file_id=font_file_info.id)
-
-    return font_file_info
-```
-</code></pre>
+    <span class="k">return</span> <span class="n">font_file_info</span>
+</code></pre></div>
 <h2 id="review-the-instructions">Review the Instructions<a class="headerlink" href="#review-the-instructions" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
